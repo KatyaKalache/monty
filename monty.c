@@ -1,5 +1,10 @@
  #include "monty.h"
-
+/**
+ * main - tokenizes values from monty files and calling function to execute
+ * @argc: number of arguments entered
+ * @argv: arguments passed
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
+ */
 int main(int argc, char **argv)
 {
 	FILE *file_to_open;
@@ -14,7 +19,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf ("USAGE: monty file\n");
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file_to_open = fopen(argv[1], "r");
@@ -32,7 +37,8 @@ int main(int argc, char **argv)
 		if (strcmp(opcode, "push") == 0)
 		{
 			token = strtok(NULL, DELIMITER);
-			printf("this is token %s\n", token);
+/*			printf("this is token %s\n", token); */
+/* converting string containing numbers into integers */
 			to_num = atoi(token);
 			add_node(&stack, line_number, to_num);
 		}
@@ -40,6 +46,6 @@ int main(int argc, char **argv)
 			op_func(opcode, &stack, line_number);
 	}
 	fclose(file_to_open);
-	exit (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
