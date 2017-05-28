@@ -20,5 +20,5 @@ void add_node(stack_t **head, __attribute__ ((unused))unsigned int line, int n)
 	new_node->prev = NULL;
 	new_node->next = *head;
 	*head = new_node;
-	printf("this is the node %d\n", new_node->n);
+/*	printf("this is the node %d\n", new_node->n); */
 }
