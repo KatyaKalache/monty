@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	char *opcode;
 	unsigned int line_number = 0;
 	int to_num;
+	stack_t *to_free;
 
 	if (argc != 2)
 	{
@@ -45,9 +46,14 @@ int main(int argc, char **argv)
 		else
 			op_func(opcode, &stack, line_number);
 	}
+	while (stack != NULL)
+	{
+		to_free = stack;
+		to_free = to_free->next;
+		free(to_free);
+	}
 	fclose(file_to_open);
-	exit(EXIT_SUCCESS);
-	free(&stack);
 	free(line);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
