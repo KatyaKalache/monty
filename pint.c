@@ -10,9 +10,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	stack_t *print_top;
 
 	print_top = *stack;
-/*	printf("i am here\n"); */
 
-	if (print_top != NULL)
+	if (print_top != NULL && *stack != NULL)
 	{
 		printf("%d\n", print_top->n);
 	}
