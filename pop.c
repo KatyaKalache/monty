@@ -22,4 +22,5 @@ void pop(stack_t **stack, unsigned int line_number)
 		printf("L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
+	free(to_pop);
 }
