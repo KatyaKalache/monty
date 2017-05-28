@@ -47,5 +47,7 @@ int main(int argc, char **argv)
 	}
 	fclose(file_to_open);
 	exit(EXIT_SUCCESS);
+	free(&stack);
+	free(line);
 	return (0);
 }
