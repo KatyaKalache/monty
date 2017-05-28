@@ -36,6 +36,6 @@ typedef struct instruction_s
 } instruction_t;
 
 int add_node(stack_t **head, int n);
-void pall(stack_t **stack, __attribute__ ((unused)) unsigned int line_number);
-void op_codes(char *opcode, stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_number);
+int op_func(char *opcode, stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */
