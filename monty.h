@@ -40,5 +40,5 @@ void pall(stack_t **stack, __attribute__ ((unused))unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 int op_func(char *opcode, stack_t **stack, unsigned int line_number);
-void to_free(stack_t *stack);
+void to_free(stack_t **stack);
 #endif /* MONTY_H */
