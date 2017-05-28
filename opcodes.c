@@ -5,17 +5,19 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{NULL, NULL}
 	};
+
 	unsigned int i = 0;
-	printf("i am in opcode");
+	printf("i am in opcode\n");
 
 	while (op_codes[i].opcode)
 	{
 		if (strcmp(opcode, op_codes[i].opcode) == 0)
 		{
 			(op_codes[i].f)(stack, line_number);
-			exit (EXIT_SUCCESS);
+			 exit(EXIT_SUCCESS);
 		}
 		i++;
 	}
-	exit (EXIT_FAILURE);
+	printf("L%d: unknown instruction %s\n", line_number, opcode);
+	exit(EXIT_FAILURE);
 }

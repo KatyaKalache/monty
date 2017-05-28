@@ -7,48 +7,39 @@ int main(int argc, char **argv)
 	char *line = NULL;
 	size_t len = 0;
 	char *token;
-	int to_num;
 	stack_t *stack = NULL;
-	int count = 0;
-	char *opcode = NULL;
+	char *opcode;
 	unsigned int line_number = 0;
+	int to_num;
 
-/*	stack_t *to_print; */
-	if (argc == 0)
+	if (argc != 2)
 	{
-		EXIT_FAILURE;
+		printf ("USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-/* open the file .m */
 	file_to_open = fopen(argv[1], "r");
-/* read files content */
+	if (!file_to_open)
+	{
+		printf("Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while ((read = getline(&line, &len, file_to_open)) != -1)
 	{
 		line_number++;
 /*		printf("read %d\n", read); */
 /*		printf("%s", line); */
-		token = strtok(line, DELIMITER);
-
-	       	if (strcmp(token, "push") == 0)
+		opcode = strtok(line, DELIMITER);
+		if (strcmp(opcode, "push") == 0)
 		{
 			token = strtok(NULL, DELIMITER);
-			/*	printf("%s\n", token); */
-				to_num = atoi(token);
-/* add to stack */
-			add_node(&stack, to_num);
+			printf("this is token %s\n", token);
+			to_num = atoi(token);
+			add_node(&stack, line_number, to_num);
 		}
 		else
 			op_func(opcode, &stack, line_number);
-/*
-		{
-			to_print = stack;
-			while (to_print != NULL)
-			{
-				printf("this is pall %d\n", to_print->n);
-				to_print = to_print->next;
-			}
-			} */
 	}
+	fclose(file_to_open);
 	exit (EXIT_SUCCESS);
-	count++;
 	return (0);
 }
