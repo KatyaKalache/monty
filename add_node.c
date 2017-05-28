@@ -1,5 +1,12 @@
 #include "monty.h"
-void add_node(stack_t **head, __attribute__ ((unused))unsigned int line_number, int n)
+/**
+ * add_node - adding new values from monty when encounters push instruction
+ * @head: pointer to the list of values
+ * @n: values accessing from tokenized line
+ * @line: counting lines
+ * Return: nothing
+ */
+void add_node(stack_t **head, __attribute__ ((unused))unsigned int line, int n)
 {
 	stack_t *new_node = NULL;
 
