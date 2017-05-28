@@ -1,4 +1,11 @@
 #include "monty.h"
+/**
+ * op_func - structure of instructions passed from monty files
+ * @opcode: tokenized opcode passed from monty file
+ * @stack: storing values
+ * @line_number: counting lines in monty
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
+ */
 int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	instruction_t op_codes[] = {
@@ -7,8 +14,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 	};
 
 	unsigned int i = 0;
-	printf("i am in opcode\n");
-
+/* check if instructions from the file matches any in structure */
 	while (op_codes[i].opcode)
 	{
 		if (strcmp(opcode, op_codes[i].opcode) == 0)
@@ -18,6 +24,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
+/* if no matches */
 	printf("L%d: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
