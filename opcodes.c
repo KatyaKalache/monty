@@ -22,7 +22,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_number)
 		if (strcmp(opcode, op_codes[i].opcode) == 0)
 		{
 			(op_codes[i].f)(stack, line_number);
-			 exit(EXIT_SUCCESS);
+			 return(EXIT_SUCCESS);
 		}
 		i++;
 	}
