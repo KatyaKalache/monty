@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,4 +42,5 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 int op_func(char *opcode, stack_t **stack, unsigned int line_number);
 void to_free(stack_t **stack);
+void swap(stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */
