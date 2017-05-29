@@ -46,6 +46,10 @@ int main(int argc, char **argv)
 		else
 			op_func(opcode, &stack, line_number);
 	}
+	if (!read)
+	{
+		printf("Error: Can't open file %s", argv[1]);
+	}
 
 	fclose(file_to_open);
 	free(line);
