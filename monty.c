@@ -41,7 +41,10 @@ int main(int argc, char **argv)
 /*			printf("this is token %s\n", token); */
 /* converting string containing numbers into integers */
 			to_num = atoi(token);
-			add_node(&stack, line_number, to_num);
+			if (!to_num)
+				printf("L%d: usage: push integer\n", line_number);
+			else
+				add_node(&stack, line_number, to_num);
 		}
 		else
 			op_func(opcode, &stack, line_number);
