@@ -10,10 +10,17 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *to_swap;
 	int to_swap_1;
 	int to_swap_2;
+	unsigned int number_elements = 0;
 
 	to_swap = *stack;
+	while (to_swap != NULL)
+	{
+		number_elements++;
+		to_swap = to_swap->next;
+	}
 /*check if stack contains no less than 2 integers */
-	if (to_swap != NULL && to_swap->next->next != NULL)
+	to_swap = *stack;
+	if (number_elements > 1)
 	{
 /* assigning value 1 to first, value 2(next after first) to second */
 		to_swap_1 = to_swap->n;
