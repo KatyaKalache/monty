@@ -13,7 +13,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	to_swap = *stack;
 /*check if stack contains no less than 2 integers */
-	if (to_swap && to_swap->next->next != NULL)
+	if (to_swap != NULL && to_swap->next->next != NULL)
 	{
 /* assigning value 1 to first, value 2(next after first) to second */
 		to_swap_1 = to_swap->n;
