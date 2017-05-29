@@ -49,6 +49,7 @@ int main(int argc, char **argv)
 	if (!read)
 	{
 		printf("Error: Can't open file %s", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 
 	fclose(file_to_open);
